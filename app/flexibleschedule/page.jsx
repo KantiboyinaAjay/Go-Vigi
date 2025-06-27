@@ -24,7 +24,7 @@ export default function FlexibleSchedule() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-xl rounded-2xl p-6 space-y-5">
+    <div className="max-w-md my-5 mx-auto bg-white shadow-xl rounded-2xl p-6 space-y-5">
       <h2 className="text-2xl font-bold text-gray-800">Flexible Schedules</h2>
       <p className="text-gray-500">Set up daily or weekly delivery timings</p>
 

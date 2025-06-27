@@ -12,16 +12,20 @@ export default function Features() {
             <p className="text-sm text-gray-600">Set up daily or weekly delivery timings</p>
           </div>
         </Link>
-        <div className="text-center">
-          <div className="text-green-600 text-3xl mb-2">📋</div>
-          <h3 className="font-bold mb-1">Custom Instructions</h3>
-          <p className="text-sm text-gray-600">Provide specific delivery preferences</p>
-        </div>
-        <div className="text-center">
-          <div className="text-green-600 text-3xl mb-2">💸</div>
-          <h3 className="font-bold mb-1">Payment Options</h3>
-          <p className="text-sm text-gray-600">Pay via UPI, wallets, or bank transfer</p>
-        </div>
+        <Link href='/deliveryinstructions'>
+          <div className="text-center">
+            <div className="text-green-600 text-3xl mb-2">📋</div>
+            <h3 className="font-bold mb-1">Custom Instructions</h3>
+            <p className="text-sm text-gray-600">Provide specific delivery preferences</p>
+          </div>
+        </Link>
+        <Link href='/paymentoptions'>
+          <div className="text-center">
+            <div className="text-green-600 text-3xl mb-2">💸</div>
+            <h3 className="font-bold mb-1">Payment Options</h3>
+            <p className="text-sm text-gray-600">Pay via UPI, wallets, or bank transfer</p>
+          </div>
+        </Link>
       </div>
     </section>
   );
