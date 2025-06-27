@@ -20,7 +20,7 @@ export default function PriceList() {
             <img
               src={item.image}
               alt={item.name}
-              className="mx-auto h-28 w-28 object-contain mb-4"
+              className="mx-auto object-contain mb-4 h-50 w-50"
             />
             <h3 className="font-semibold text-lg">{item.name}</h3>
             <p className="text-sm text-gray-600">{item.price}</p>

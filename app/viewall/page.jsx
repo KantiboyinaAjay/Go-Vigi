@@ -13,7 +13,7 @@ export default function ViewAll() {
             <img
               src={item.image}
               alt={item.name}
-              className="mx-auto h-28 w-28 object-contain mb-4"
+              className="mx-auto h-50 w-50 object-contain mb-4"
             />
             <h3 className="font-semibold text-lg">{item.name}</h3>
             <p className="text-sm text-gray-600">{item.price}</p>

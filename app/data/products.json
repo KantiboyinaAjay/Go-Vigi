@@ -9,5 +9,17 @@
   { "name": "Beetroot", "price": "₹16/kg", "image": "/beetroot.png" },
   { "name": "Green Chilli", "price": "₹12/kg", "image": "/chilli.png" },
   { "name": "Cucumber", "price": "₹10/kg", "image": "/cucumber.png" },
-  { "name": "Sweet Potato", "price": "₹20/kg", "image": "/sweetpotato.png" }
+  { "name": "Sweet Potato", "price": "₹20/kg", "image": "/sweetpotato.png" },
+  { "name": "Bell Pepper", "price": "₹16/kg", "image": "/bellpepper.png" },
+  { "name": "Bitter Gourd", "price": "₹12/kg", "image": "/bitter-gourd.png" },
+  { "name": "Brinjal", "price": "₹10/kg", "image": "/brinjal.png" },
+  { "name": "Drum-Stick", "price": "₹20/kg", "image": "/drumstick.png" },
+  { "name": "Garlic", "price": "₹14/kg", "image": "/garlic.png" },
+  { "name": "Ginger", "price": "₹8/kg", "image": "/ginger.png" },
+  { "name": "Green Peas", "price": "₹20/kg", "image": "/peas.png" },
+  { "name": "Green Amaranth", "price": "₹16/kg", "image": "/green_amaranth.png" },
+  { "name": "Green Beans", "price": "₹12/kg", "image": "/greenbeans.png" },
+  { "name": "Ivy-Gourd", "price": "₹10/kg", "image": "/ivygourd.png" },
+  { "name": "Lady Finger", "price": "₹20/kg", "image": "/ladyfinger.png" },
+  { "name": "Raddish", "price": "₹20/kg", "image": "/raddish.png" }
 ]
