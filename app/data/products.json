@@ -1,0 +1,13 @@
+[
+  { "name": "Tomatoes", "price": "₹16/kg", "image": "/tomato.png" },
+  { "name": "Onions", "price": "₹12/kg", "image": "/onion.png" },
+  { "name": "Potatoes", "price": "₹10/kg", "image": "/potato.png" },
+  { "name": "Cauliflower", "price": "₹20/kg", "image": "/cauliflower.png" },
+  { "name": "Spinach", "price": "₹14/kg", "image": "/spinach.png" },
+  { "name": "Cabbage", "price": "₹8/kg", "image": "/cabbage.png" },
+  { "name": "Carrot", "price": "₹20/kg", "image": "/carrot.png" },
+  { "name": "Beetroot", "price": "₹16/kg", "image": "/beetroot.png" },
+  { "name": "Green Chilli", "price": "₹12/kg", "image": "/chilli.png" },
+  { "name": "Cucumber", "price": "₹10/kg", "image": "/cucumber.png" },
+  { "name": "Sweet Potato", "price": "₹20/kg", "image": "/sweetpotato.png" }
+]
