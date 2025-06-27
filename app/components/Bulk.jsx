@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Bulk() {
   return (
     <section className="flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-20 py-10">
@@ -8,9 +10,11 @@ export default function Bulk() {
         <p className="text-gray-700 mb-6">
           Delivering fresh vegetables in quantity to PGs, hostels, hotels, and canteens.
         </p>
-        <button className="bg-green-600 text-white px-6 py-3 rounded text-lg cursor-pointer">
-          PLACE BULK ORDER
-        </button>
+        <Link href='/bulkorders'>
+          <button className="bg-green-600 text-white px-6 py-3 rounded text-lg cursor-pointer">
+            PLACE BULK ORDER
+          </button>
+        </Link>
       </div>
       <img src="/basket.png" alt="Vegetable Basket" className="w-80 h-auto mb-6 md:mb-0" />
     </section>
