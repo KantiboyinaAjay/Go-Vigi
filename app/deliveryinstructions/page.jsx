@@ -99,7 +99,7 @@ export default function DeliveryInstructions() {
 
       {/* ✅ Floating Popup for Save Confirmation */}
       {showSavedPopup && (
-        <div className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-opacity duration-300 z-50">
+        <div className="fixed top-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 transition-opacity duration-300 z-50">
           <CheckCircle className="w-4 h-4" />
           Instructions saved successfully!
         </div>
