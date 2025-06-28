@@ -4,12 +4,24 @@ import Link from "next/link";
 import LoginCard from "../logincard/page";
 import React, { useEffect, useState } from "react";
 import Address from "./Address";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showLocationPopup, setShowLocationPopup] = useState(false);
   const [location, setLocation] = useState("");
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/searchpro?query=${encodeURIComponent(searchQuery.trim())}`);
+      setMobileMenuOpen(false); // Close mobile menu after search
+    }
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem("user-location");
@@ -29,7 +41,6 @@ export default function Header() {
     return [city, state].filter(Boolean).join(", ");
   };
 
-
   return (
     <>
       <nav className="h-20 bg-white/20 backdrop-blur-md shadow-sm sticky top-0 z-50 w-full border-b border-gray-200 transition duration-300">
@@ -46,23 +57,37 @@ export default function Header() {
             <span className="text-2xl font-bold text-green-600">Go-vigi</span>
           </Link>
 
-          {/* Search + Location wrapper */}
+          {/* Search + Location wrapper (Desktop) */}
           <div className="hidden md:flex flex-1 px-6 gap-6 items-center">
-            {/* Search Bar */}
-            <div className="relative w-full max-w-md">
-              <span className="absolute inset-y-0 left-3 flex items-center text-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                placeholder='Search "Tomato"'
-                className="h-12 w-full pl-10 pr-4 py-2 rounded-xl bg-gray-100 text-sm text-gray-700 placeholder-gray-400 border border-gray-200 focus:outline-none"
-              />
-            </div>
+            <form onSubmit={handleSearch} className="hidden md:flex flex-1 px-6">
+              <div className="relative w-full max-w-md">
+                <span className="absolute inset-y-0 left-3 flex items-center text-gray-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"
+                    />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder='Search "Tomato"'
+                  className="h-12 w-full pl-10 pr-4 py-2 rounded-xl bg-gray-100 text-sm text-gray-700 placeholder-gray-400 border border-gray-200 focus:outline-none"
+                />
+              </div>
+            </form>
 
-            {/* Location Button */}
+            {/* Location (Desktop) */}
             <div
               className="flex flex-col justify-center cursor-pointer max-w-[240px] truncate"
               onClick={() => setShowLocationPopup(true)}
@@ -107,14 +132,31 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Content */}
         {mobileMenuOpen && (
-          <div className="md:hidden px-4 pb-4 pt-2 space-y-3 bg-white shadow">
+          <div className="md:hidden px-4 pb-4 pt-2 space-y-4 bg-white shadow">
+            {/* Search Input */}
             <input
               type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search"
+              onKeyDown={(e) => e.key === "Enter" && handleSearch(e)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm"
             />
+
+            {/* Location (Mobile) */}
+            <div
+              className="flex flex-col justify-center cursor-pointer max-w-full"
+              onClick={() => setShowLocationPopup(true)}
+            >
+              <span className="text-sm font-semibold text-black">Delivery in 24 Hours</span>
+              <span className="text-xs text-gray-600 truncate">
+                {location || "Choose location"}
+              </span>
+            </div>
+
+            {/* Login Button */}
             <button
               onClick={() => {
                 setShowLogin(true);
@@ -125,7 +167,12 @@ export default function Header() {
               <Image src="/User1.png" alt="Login" width={20} height={20} className="mr-2 w-5 h-5" />
               Login
             </button>
-            <Link href="/cart" className="w-full flex items-center justify-center bg-green-600 text-white px-4 py-2 rounded-lg">
+
+            {/* Cart Button */}
+            <Link
+              href="/cart"
+              className="w-full flex items-center justify-center bg-green-600 text-white px-4 py-2 rounded-lg"
+            >
               <Image src="/cart.png" alt="Cart" width={24} height={24} className="mr-2 w-6 h-6" />
               My Cart
             </Link>
