@@ -103,7 +103,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4 text-sm font-medium text-gray-800">
             <button
               onClick={() => setShowLogin(true)}
-              className="h-12 flex items-center space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
+              className="h-12 flex items-center cursor-pointer space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
             >
               <Image src="/User1.png" alt="Login" width={20} height={20} className="w-5 h-5" />
               <span>Login</span>

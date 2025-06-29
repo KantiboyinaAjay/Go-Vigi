@@ -43,7 +43,7 @@ export default function SearchProPage() {
               <h3 className="font-semibold text-lg">{item.name}</h3>
               <p className="text-sm text-gray-600 mb-3">{item.price}</p>
               <button
-                className="mt-auto bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
+                className="mt-auto bg-green-600 cursor-pointer text-white px-4 py-2 rounded hover:bg-green-700 transition-colors"
                 onClick={() => addToCart(item)}
               >
                 Add to Cart
