@@ -5,12 +5,18 @@ import LoginCard from "../logincard/page";
 import React, { useEffect, useState } from "react";
 import Address from "./Address";
 import { useRouter } from "next/navigation";
+import { useCart } from '../cartpro/CartContext';
+
 
 export default function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showLocationPopup, setShowLocationPopup] = useState(false);
   const [location, setLocation] = useState("");
+  const { cartItems } = useCart();
+  // const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCount = cartItems.length; // ✅ unique item count
+
 
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
@@ -103,7 +109,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4 text-sm font-medium text-gray-800">
             <button
               onClick={() => setShowLogin(true)}
-              className="h-12 flex items-center space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
+              className="h-12 flex items-center cursor-pointer space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
             >
               <Image src="/User1.png" alt="Login" width={20} height={20} className="w-5 h-5" />
               <span>Login</span>
@@ -111,10 +117,15 @@ export default function Header() {
 
             <Link
               href="/cart"
-              className="h-12 flex items-center space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
+              className="relative h-12 flex items-center space-x-2 bg-green-600 text-white font-semibold px-4 py-2 rounded-lg"
             >
               <Image src="/cart.png" alt="Cart" width={24} height={24} className="w-6 h-6" />
               <span>My Cart</span>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
+              )}
             </Link>
           </div>
 
@@ -170,12 +181,18 @@ export default function Header() {
 
             {/* Cart Button */}
             <Link
-              href="/cart"
-              className="w-full flex items-center justify-center bg-green-600 text-white px-4 py-2 rounded-lg"
-            >
-              <Image src="/cart.png" alt="Cart" width={24} height={24} className="mr-2 w-6 h-6" />
-              My Cart
-            </Link>
+            href="/cart"
+            className="relative w-full flex items-center justify-center bg-green-600 text-white px-4 py-2 rounded-lg"
+          >
+            <Image src="/cart.png" alt="Cart" width={24} height={24} className="mr-2 w-6 h-6" />
+            My Cart
+            {cartCount > 0 && (
+              <span className="absolute top-0 right-4 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
           </div>
         )}
       </nav>
